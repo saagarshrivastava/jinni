@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    
+    <!--
+        Added the entity Session.
+    -->
+    <changeSet id="20200513223100-1" author="jhipster">
+        <createTable tableName="session" remarks="An exam session related information.\nThis includes a number of duplicate (read only) properties\nfrom other entities which are there to make querying easier.">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="scheduleid" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="candidateid" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="locationid" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="examtypeid" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="deliverytypeid" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="deliverystatusid" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="examid" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="exambackendid" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="reservationid" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="scheduleid_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_session_scheduleid_id" />
+            </column>
+            <column name="candidateid_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_session_candidateid_id" />
+            </column>
+            <column name="locationid_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_session_locationid_id" />
+            </column>
+            <column name="examtypeid_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_session_examtypeid_id" />
+            </column>
+            <column name="deliverytypeid_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_session_deliverytypeid_id" />
+            </column>
+            <column name="deliverystatusid_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_session_deliverystatusid_id" />
+            </column>
+            <column name="examid_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_session_examid_id" />
+            </column>
+            <column name="exambackendid_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_session_exambackendid_id" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20200513223100-1-relations" author="jhipster">
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20200513223100-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/session.csv"
+                  separator=";"
+                  tableName="session">
+            <column name="id" type="numeric"/>
+            <column name="scheduleid" type="numeric"/>
+            <column name="candidateid" type="numeric"/>
+            <column name="locationid" type="numeric"/>
+            <column name="examtypeid" type="numeric"/>
+            <column name="deliverytypeid" type="numeric"/>
+            <column name="deliverystatusid" type="numeric"/>
+            <column name="examid" type="numeric"/>
+            <column name="exambackendid" type="numeric"/>
+            <column name="reservationid" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here, do not remove-->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

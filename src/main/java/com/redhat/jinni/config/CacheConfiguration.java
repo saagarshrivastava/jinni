@@ -40,6 +40,33 @@ public class CacheConfiguration {
             createCache(cm, com.redhat.jinni.domain.User.class.getName());
             createCache(cm, com.redhat.jinni.domain.Authority.class.getName());
             createCache(cm, com.redhat.jinni.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.redhat.jinni.domain.Session.class.getName());
+            createCache(cm, com.redhat.jinni.domain.Schedule.class.getName());
+            createCache(cm, com.redhat.jinni.domain.Candidate.class.getName());
+            createCache(cm, com.redhat.jinni.domain.Location.class.getName());
+            createCache(cm, com.redhat.jinni.domain.ProctoringInstance.class.getName());
+            createCache(cm, com.redhat.jinni.domain.SessionBreaks.class.getName());
+            createCache(cm, com.redhat.jinni.domain.Incident.class.getName());
+            createCache(cm, com.redhat.jinni.domain.CategoryInstance.class.getName());
+            createCache(cm, com.redhat.jinni.domain.SubcategoryInstance.class.getName());
+            createCache(cm, com.redhat.jinni.domain.MajorIncident.class.getName());
+            createCache(cm, com.redhat.jinni.domain.MajorIncidentSource.class.getName());
+            createCache(cm, com.redhat.jinni.domain.Proctor.class.getName());
+            createCache(cm, com.redhat.jinni.domain.SupportInstance.class.getName());
+            createCache(cm, com.redhat.jinni.domain.SupportPerson.class.getName());
+            createCache(cm, com.redhat.jinni.domain.DeliveryType.class.getName());
+            createCache(cm, com.redhat.jinni.domain.ExamType.class.getName());
+            createCache(cm, com.redhat.jinni.domain.DeliveryStatus.class.getName());
+            createCache(cm, com.redhat.jinni.domain.FailureStage.class.getName());
+            createCache(cm, com.redhat.jinni.domain.Category.class.getName());
+            createCache(cm, com.redhat.jinni.domain.Subcategory.class.getName());
+            createCache(cm, com.redhat.jinni.domain.Exam.class.getName());
+            createCache(cm, com.redhat.jinni.domain.Region.class.getName());
+            createCache(cm, com.redhat.jinni.domain.ExamBackend.class.getName());
+            createCache(cm, com.redhat.jinni.domain.OfferType.class.getName());
+            createCache(cm, com.redhat.jinni.domain.CloudInstance.class.getName());
+            createCache(cm, com.redhat.jinni.domain.CloudRegion.class.getName());
+            createCache(cm, com.redhat.jinni.domain.Offer.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

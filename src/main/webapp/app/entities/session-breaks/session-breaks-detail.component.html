@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sessionBreaks">
+            <h2><span jhiTranslate="jinniApp.sessionBreaks.detail.title">Session Breaks</span> {{ sessionBreaks.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jinniApp.sessionBreaks.starttime">Starttime</span></dt>
+                <dd>
+                    <span>{{ sessionBreaks.starttime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.sessionBreaks.endtime">Endtime</span></dt>
+                <dd>
+                    <span>{{ sessionBreaks.endtime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.sessionBreaks.proctoringinstanceid">Proctoringinstanceid</span></dt>
+                <dd>
+                    <span>{{ sessionBreaks.proctoringinstanceid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.sessionBreaks.proctoringinstanceid">Proctoringinstanceid</span></dt>
+                <dd>
+                    <div *ngIf="sessionBreaks.proctoringinstanceid">
+                        <a [routerLink]="['/proctoring-instance', sessionBreaks.proctoringinstanceid?.id, 'view']">{{ sessionBreaks.proctoringinstanceid?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/session-breaks', sessionBreaks.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

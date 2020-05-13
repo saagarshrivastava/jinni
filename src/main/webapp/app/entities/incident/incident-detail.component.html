@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="incident">
+            <h2><span jhiTranslate="jinniApp.incident.detail.title">Incident</span> {{ incident.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jinniApp.incident.sessionid">Sessionid</span></dt>
+                <dd>
+                    <span>{{ incident.sessionid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.incident.majorincidentid">Majorincidentid</span></dt>
+                <dd>
+                    <span>{{ incident.majorincidentid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.incident.failurestageid">Failurestageid</span></dt>
+                <dd>
+                    <span>{{ incident.failurestageid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.incident.summary">Summary</span></dt>
+                <dd>
+                    <span>{{ incident.summary }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.incident.investigationreport">Investigationreport</span></dt>
+                <dd>
+                    <span>{{ incident.investigationreport }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.incident.servicenowticketid">Servicenowticketid</span></dt>
+                <dd>
+                    <span>{{ incident.servicenowticketid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.incident.sessionid">Sessionid</span></dt>
+                <dd>
+                    <div *ngIf="incident.sessionid">
+                        <a [routerLink]="['/session', incident.sessionid?.id, 'view']">{{ incident.sessionid?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.incident.failurestageid">Failurestageid</span></dt>
+                <dd>
+                    <div *ngIf="incident.failurestageid">
+                        <a [routerLink]="['/failure-stage', incident.failurestageid?.id, 'view']">{{ incident.failurestageid?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.incident.majorincidentid">Majorincidentid</span></dt>
+                <dd>
+                    <div *ngIf="incident.majorincidentid">
+                        <a [routerLink]="['/major-incident', incident.majorincidentid?.id, 'view']">{{ incident.majorincidentid?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/incident', incident.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

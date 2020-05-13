@@ -1,0 +1,54 @@
+{
+    "name": "SupportInstance",
+    "fields": [
+        {
+            "fieldName": "starttime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "endtime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "chatlogs",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sessionid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "supportpersonid",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "supportPerson",
+            "otherEntityRelationshipName": "supportInstance",
+            "relationshipName": "supportpersonid",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "session",
+            "otherEntityRelationshipName": "supportInstance",
+            "relationshipName": "sessionid",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200513224300",
+    "javadoc": "Support Instance details",
+    "entityTableName": "support_instance",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

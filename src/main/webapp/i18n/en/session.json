@@ -1,0 +1,39 @@
+{
+  "jinniApp": {
+    "session": {
+      "home": {
+        "title": "Sessions",
+        "createLabel": "Create a new Session",
+        "createOrEditLabel": "Create or edit a Session",
+        "search": "Search for Session",
+        "notFound": "No Sessions found"
+      },
+      "created": "A new Session is created with identifier {{ param }}",
+      "updated": "A Session is updated with identifier {{ param }}",
+      "deleted": "A Session is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Session {{ id }}?"
+      },
+      "detail": {
+        "title": "Session"
+      },
+      "scheduleid": "Scheduleid",
+      "candidateid": "Candidateid",
+      "locationid": "Locationid",
+      "examtypeid": "Examtypeid",
+      "deliverytypeid": "Deliverytypeid",
+      "deliverystatusid": "Deliverystatusid",
+      "examid": "Examid",
+      "exambackendid": "Exambackendid",
+      "reservationid": "Reservationid",
+      "scheduleid": "Scheduleid",
+      "candidateid": "Candidateid",
+      "locationid": "Locationid",
+      "examtypeid": "Examtypeid",
+      "deliverytypeid": "Deliverytypeid",
+      "deliverystatusid": "Deliverystatusid",
+      "examid": "Examid",
+      "exambackendid": "Exambackendid"
+    }
+  }
+}

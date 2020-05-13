@@ -1,0 +1,26 @@
+{
+  "jinniApp": {
+    "sessionBreaks": {
+      "home": {
+        "title": "Session Breaks",
+        "createLabel": "Create a new Session Breaks",
+        "createOrEditLabel": "Create or edit a Session Breaks",
+        "search": "Search for Session Breaks",
+        "notFound": "No Session Breaks found"
+      },
+      "created": "A new Session Breaks is created with identifier {{ param }}",
+      "updated": "A Session Breaks is updated with identifier {{ param }}",
+      "deleted": "A Session Breaks is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Session Breaks {{ id }}?"
+      },
+      "detail": {
+        "title": "Session Breaks"
+      },
+      "starttime": "Starttime",
+      "endtime": "Endtime",
+      "proctoringinstanceid": "Proctoringinstanceid",
+      "proctoringinstanceid": "Proctoringinstanceid"
+    }
+  }
+}

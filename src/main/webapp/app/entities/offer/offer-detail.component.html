@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="offer">
+            <h2><span jhiTranslate="jinniApp.offer.detail.title">Offer</span> {{ offer.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jinniApp.offer.incidentid">Incidentid</span></dt>
+                <dd>
+                    <span>{{ offer.incidentid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.offer.offertypeid">Offertypeid</span></dt>
+                <dd>
+                    <span>{{ offer.offertypeid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.offer.examid">Examid</span></dt>
+                <dd>
+                    <span>{{ offer.examid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.offer.discountpercentage">Discountpercentage</span></dt>
+                <dd>
+                    <span>{{ offer.discountpercentage }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.offer.offertypeid">Offertypeid</span></dt>
+                <dd>
+                    <div *ngIf="offer.offertypeid">
+                        <a [routerLink]="['/offer-type', offer.offertypeid?.id, 'view']">{{ offer.offertypeid?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.offer.incidentid">Incidentid</span></dt>
+                <dd>
+                    <div *ngIf="offer.incidentid">
+                        <a [routerLink]="['/incident', offer.incidentid?.id, 'view']">{{ offer.incidentid?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.offer.examid">Examid</span></dt>
+                <dd>
+                    <div *ngIf="offer.examid">
+                        <a [routerLink]="['/exam', offer.examid?.id, 'view']">{{ offer.examid?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/offer', offer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

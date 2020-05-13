@@ -1,0 +1,24 @@
+{
+  "jinniApp": {
+    "examBackend": {
+      "home": {
+        "title": "Exam Backends",
+        "createLabel": "Create a new Exam Backend",
+        "createOrEditLabel": "Create or edit a Exam Backend",
+        "search": "Search for Exam Backend",
+        "notFound": "No Exam Backends found"
+      },
+      "created": "A new Exam Backend is created with identifier {{ param }}",
+      "updated": "A Exam Backend is updated with identifier {{ param }}",
+      "deleted": "A Exam Backend is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Exam Backend {{ id }}?"
+      },
+      "detail": {
+        "title": "Exam Backend"
+      },
+      "code": "Code",
+      "description": "Description"
+    }
+  }
+}

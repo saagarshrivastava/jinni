@@ -1,0 +1,119 @@
+{
+    "name": "Session",
+    "fields": [
+        {
+            "fieldName": "scheduleid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "candidateid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "locationid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "examtypeid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "deliverytypeid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "deliverystatusid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "examid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "exambackendid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "reservationid",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "schedule",
+            "otherEntityRelationshipName": "session",
+            "relationshipName": "scheduleid",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "candidate",
+            "otherEntityRelationshipName": "session",
+            "relationshipName": "candidateid",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "location",
+            "otherEntityRelationshipName": "session",
+            "relationshipName": "locationid",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "examType",
+            "otherEntityRelationshipName": "session",
+            "relationshipName": "examtypeid",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "deliveryType",
+            "otherEntityRelationshipName": "session",
+            "relationshipName": "deliverytypeid",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "deliveryStatus",
+            "otherEntityRelationshipName": "session",
+            "relationshipName": "deliverystatusid",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "exam",
+            "otherEntityRelationshipName": "session",
+            "relationshipName": "examid",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "examBackend",
+            "otherEntityRelationshipName": "session",
+            "relationshipName": "exambackendid",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20200513223100",
+    "javadoc": "An exam session related information.\\nThis includes a number of duplicate (read only) properties\\nfrom other entities which are there to make querying easier.",
+    "entityTableName": "session",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

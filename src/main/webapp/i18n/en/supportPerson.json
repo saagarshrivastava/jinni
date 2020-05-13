@@ -1,0 +1,25 @@
+{
+  "jinniApp": {
+    "supportPerson": {
+      "home": {
+        "title": "Support People",
+        "createLabel": "Create a new Support Person",
+        "createOrEditLabel": "Create or edit a Support Person",
+        "search": "Search for Support Person",
+        "notFound": "No Support People found"
+      },
+      "created": "A new Support Person is created with identifier {{ param }}",
+      "updated": "A Support Person is updated with identifier {{ param }}",
+      "deleted": "A Support Person is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Support Person {{ id }}?"
+      },
+      "detail": {
+        "title": "Support Person"
+      },
+      "name": "Name",
+      "email": "Email",
+      "office": "Office"
+    }
+  }
+}

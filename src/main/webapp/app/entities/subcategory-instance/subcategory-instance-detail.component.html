@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="subcategoryInstance">
+            <h2><span jhiTranslate="jinniApp.subcategoryInstance.detail.title">Subcategory Instance</span> {{ subcategoryInstance.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jinniApp.subcategoryInstance.categoryinstanceid">Categoryinstanceid</span></dt>
+                <dd>
+                    <span>{{ subcategoryInstance.categoryinstanceid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.subcategoryInstance.subcategoryid">Subcategoryid</span></dt>
+                <dd>
+                    <span>{{ subcategoryInstance.subcategoryid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.subcategoryInstance.rank">Rank</span></dt>
+                <dd>
+                    <span>{{ subcategoryInstance.rank }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.subcategoryInstance.subcategoryid">Subcategoryid</span></dt>
+                <dd>
+                    <div *ngIf="subcategoryInstance.subcategoryid">
+                        <a [routerLink]="['/subcategory', subcategoryInstance.subcategoryid?.id, 'view']">{{ subcategoryInstance.subcategoryid?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.subcategoryInstance.categoryinstanceid">Categoryinstanceid</span></dt>
+                <dd>
+                    <div *ngIf="subcategoryInstance.categoryinstanceid">
+                        <a [routerLink]="['/category-instance', subcategoryInstance.categoryinstanceid?.id, 'view']">{{ subcategoryInstance.categoryinstanceid?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/subcategory-instance', subcategoryInstance.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

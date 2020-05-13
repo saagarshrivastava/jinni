@@ -1,0 +1,47 @@
+{
+    "name": "MajorIncident",
+    "fields": [
+        {
+            "fieldName": "majorincidentsourceid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "starttime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "endtime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "details",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "majorIncidentSource",
+            "otherEntityRelationshipName": "majorIncident",
+            "relationshipName": "majorincidentsourceid",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20200513224000",
+    "javadoc": "Major Incident details",
+    "entityTableName": "major_incident",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

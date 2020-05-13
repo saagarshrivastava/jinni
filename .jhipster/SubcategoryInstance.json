@@ -1,0 +1,46 @@
+{
+    "name": "SubcategoryInstance",
+    "fields": [
+        {
+            "fieldName": "categoryinstanceid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "subcategoryid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "rank",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "subcategory",
+            "otherEntityRelationshipName": "subcategoryInstance",
+            "relationshipName": "subcategoryid",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "categoryInstance",
+            "otherEntityRelationshipName": "subcategoryInstance",
+            "relationshipName": "categoryinstanceid",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200513223900",
+    "javadoc": "Subcategory Instance details",
+    "entityTableName": "subcategory_instance",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

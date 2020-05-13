@@ -1,0 +1,24 @@
+{
+  "jinniApp": {
+    "failureStage": {
+      "home": {
+        "title": "Failure Stages",
+        "createLabel": "Create a new Failure Stage",
+        "createOrEditLabel": "Create or edit a Failure Stage",
+        "search": "Search for Failure Stage",
+        "notFound": "No Failure Stages found"
+      },
+      "created": "A new Failure Stage is created with identifier {{ param }}",
+      "updated": "A Failure Stage is updated with identifier {{ param }}",
+      "deleted": "A Failure Stage is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Failure Stage {{ id }}?"
+      },
+      "detail": {
+        "title": "Failure Stage"
+      },
+      "code": "Code",
+      "description": "Description"
+    }
+  }
+}

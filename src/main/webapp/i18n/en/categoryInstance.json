@@ -1,0 +1,27 @@
+{
+  "jinniApp": {
+    "categoryInstance": {
+      "home": {
+        "title": "Category Instances",
+        "createLabel": "Create a new Category Instance",
+        "createOrEditLabel": "Create or edit a Category Instance",
+        "search": "Search for Category Instance",
+        "notFound": "No Category Instances found"
+      },
+      "created": "A new Category Instance is created with identifier {{ param }}",
+      "updated": "A Category Instance is updated with identifier {{ param }}",
+      "deleted": "A Category Instance is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Category Instance {{ id }}?"
+      },
+      "detail": {
+        "title": "Category Instance"
+      },
+      "incidentid": "Incidentid",
+      "categoryid": "Categoryid",
+      "rank": "Rank",
+      "categoryid": "Categoryid",
+      "incidentid": "Incidentid"
+    }
+  }
+}

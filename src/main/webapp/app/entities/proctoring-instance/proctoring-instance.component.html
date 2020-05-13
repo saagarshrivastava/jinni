@@ -1,0 +1,107 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jinniApp.proctoringInstance.home.title">Proctoring Instances</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-proctoring-instance" [routerLink]="['/proctoring-instance/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="jinniApp.proctoringInstance.home.createLabel">
+            Create a new Proctoring Instance
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jinniApp.proctoringInstance.home.search' | translate }}">
+
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon icon="search"></fa-icon>
+                    </button>
+
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon icon="trash-alt"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="proctoringInstances?.length === 0">
+        <span jhiTranslate="jinniApp.proctoringInstance.home.notFound">No proctoringInstances found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="proctoringInstances?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="jinniApp.proctoringInstance.proctorstarttime">Proctorstarttime</span></th>
+                    <th scope="col" ><span jhiTranslate="jinniApp.proctoringInstance.proctorendtime">Proctorendtime</span></th>
+                    <th scope="col" ><span jhiTranslate="jinniApp.proctoringInstance.proctorid">Proctorid</span></th>
+                    <th scope="col" ><span jhiTranslate="jinniApp.proctoringInstance.sessionid">Sessionid</span></th>
+                    <th scope="col" ><span jhiTranslate="jinniApp.proctoringInstance.sessionnotes">Sessionnotes</span></th>
+                    <th scope="col" ><span jhiTranslate="jinniApp.proctoringInstance.proctorchat">Proctorchat</span></th>
+                    <th scope="col" ><span jhiTranslate="jinniApp.proctoringInstance.suspended">Suspended</span></th>
+                    <th scope="col" ><span jhiTranslate="jinniApp.proctoringInstance.terminated">Terminated</span></th>
+                    <th scope="col" ><span jhiTranslate="jinniApp.proctoringInstance.numberofbreaks">Numberofbreaks</span></th>
+                    <th scope="col" ><span jhiTranslate="jinniApp.proctoringInstance.proctorid">Proctorid</span></th>
+                    <th scope="col" ><span jhiTranslate="jinniApp.proctoringInstance.sessionid">Sessionid</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let proctoringInstance of proctoringInstances ;trackBy: trackId">
+                    <td><a [routerLink]="['/proctoring-instance', proctoringInstance.id, 'view']">{{ proctoringInstance.id }}</a></td>
+                    <td>{{ proctoringInstance.proctorstarttime | date:'mediumDate' }}</td>
+                    <td>{{ proctoringInstance.proctorendtime | date:'mediumDate' }}</td>
+                    <td>{{ proctoringInstance.proctorid }}</td>
+                    <td>{{ proctoringInstance.sessionid }}</td>
+                    <td>{{ proctoringInstance.sessionnotes }}</td>
+                    <td>{{ proctoringInstance.proctorchat }}</td>
+                    <td>{{ proctoringInstance.suspended }}</td>
+                    <td>{{ proctoringInstance.terminated }}</td>
+                    <td>{{ proctoringInstance.numberofbreaks }}</td>
+                    <td>
+                        <div *ngIf="proctoringInstance.proctorid">
+                            <a [routerLink]="['/proctor', proctoringInstance.proctorid?.id, 'view']" >{{ proctoringInstance.proctorid?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="proctoringInstance.sessionid">
+                            <a [routerLink]="['/session', proctoringInstance.sessionid?.id, 'view']" >{{ proctoringInstance.sessionid?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/proctoring-instance', proctoringInstance.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/proctoring-instance', proctoringInstance.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(proctoringInstance)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

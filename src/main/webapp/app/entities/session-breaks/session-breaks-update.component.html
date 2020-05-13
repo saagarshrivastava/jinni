@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-session-breaks-heading" jhiTranslate="jinniApp.sessionBreaks.home.createOrEditLabel">Create or edit a Session Breaks</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.sessionBreaks.starttime" for="field_starttime">Starttime</label>
+                    <div class="input-group">
+                        <input id="field_starttime" type="text" class="form-control" name="starttime" ngbDatepicker #starttimeDp="ngbDatepicker" formControlName="starttime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="starttimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.sessionBreaks.endtime" for="field_endtime">Endtime</label>
+                    <div class="input-group">
+                        <input id="field_endtime" type="text" class="form-control" name="endtime" ngbDatepicker #endtimeDp="ngbDatepicker" formControlName="endtime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="endtimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.sessionBreaks.proctoringinstanceid" for="field_proctoringinstanceid">Proctoringinstanceid</label>
+                    <input type="number" class="form-control" name="proctoringinstanceid" id="field_proctoringinstanceid"
+                           formControlName="proctoringinstanceid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.sessionBreaks.proctoringinstanceid" for="field_proctoringinstanceid">Proctoringinstanceid</label>
+                    <select class="form-control" id="field_proctoringinstanceid" name="proctoringinstanceid" formControlName="proctoringinstanceid">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="proctoringInstanceOption.id === editForm.get('proctoringinstanceid')!.value?.id ? editForm.get('proctoringinstanceid')!.value : proctoringInstanceOption" *ngFor="let proctoringInstanceOption of proctoringinstances; trackBy: trackById">{{ proctoringInstanceOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

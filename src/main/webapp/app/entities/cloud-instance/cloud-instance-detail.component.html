@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cloudInstance">
+            <h2><span jhiTranslate="jinniApp.cloudInstance.detail.title">Cloud Instance</span> {{ cloudInstance.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jinniApp.cloudInstance.code">Code</span></dt>
+                <dd>
+                    <span>{{ cloudInstance.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.cloudInstance.description">Description</span></dt>
+                <dd>
+                    <span>{{ cloudInstance.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.cloudInstance.cloudregionid">Cloudregionid</span></dt>
+                <dd>
+                    <span>{{ cloudInstance.cloudregionid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.cloudInstance.exambackendid">Exambackendid</span></dt>
+                <dd>
+                    <span>{{ cloudInstance.exambackendid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.cloudInstance.cloudregionid">Cloudregionid</span></dt>
+                <dd>
+                    <div *ngIf="cloudInstance.cloudregionid">
+                        <a [routerLink]="['/cloud-region', cloudInstance.cloudregionid?.id, 'view']">{{ cloudInstance.cloudregionid?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.cloudInstance.exambackendid">Exambackendid</span></dt>
+                <dd>
+                    <div *ngIf="cloudInstance.exambackendid">
+                        <a [routerLink]="['/exam-backend', cloudInstance.exambackendid?.id, 'view']">{{ cloudInstance.exambackendid?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cloud-instance', cloudInstance.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

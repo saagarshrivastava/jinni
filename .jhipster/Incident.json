@@ -1,0 +1,66 @@
+{
+    "name": "Incident",
+    "fields": [
+        {
+            "fieldName": "sessionid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "majorincidentid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "failurestageid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "summary",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "investigationreport",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "servicenowticketid",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "session",
+            "otherEntityRelationshipName": "incident",
+            "relationshipName": "sessionid",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "failureStage",
+            "otherEntityRelationshipName": "incident",
+            "relationshipName": "failurestageid",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "majorIncident",
+            "otherEntityRelationshipName": "incident",
+            "relationshipName": "majorincidentid",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200513223700",
+    "javadoc": "Incident details",
+    "entityTableName": "incident",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

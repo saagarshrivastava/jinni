@@ -1,0 +1,51 @@
+{
+    "name": "CloudInstance",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cloudregionid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "exambackendid",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "cloudRegion",
+            "otherEntityRelationshipName": "cloudInstance",
+            "relationshipName": "cloudregionid",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "examBackend",
+            "otherEntityRelationshipName": "cloudInstance",
+            "relationshipName": "exambackendid",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20200513225500",
+    "javadoc": "Cloud Instance details",
+    "entityTableName": "cloud_instance",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

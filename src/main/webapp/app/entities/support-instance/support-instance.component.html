@@ -1,0 +1,99 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jinniApp.supportInstance.home.title">Support Instances</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-support-instance" [routerLink]="['/support-instance/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="jinniApp.supportInstance.home.createLabel">
+            Create a new Support Instance
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jinniApp.supportInstance.home.search' | translate }}">
+
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon icon="search"></fa-icon>
+                    </button>
+
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon icon="trash-alt"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="supportInstances?.length === 0">
+        <span jhiTranslate="jinniApp.supportInstance.home.notFound">No supportInstances found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="supportInstances?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="jinniApp.supportInstance.starttime">Starttime</span></th>
+                    <th scope="col" ><span jhiTranslate="jinniApp.supportInstance.endtime">Endtime</span></th>
+                    <th scope="col" ><span jhiTranslate="jinniApp.supportInstance.chatlogs">Chatlogs</span></th>
+                    <th scope="col" ><span jhiTranslate="jinniApp.supportInstance.sessionid">Sessionid</span></th>
+                    <th scope="col" ><span jhiTranslate="jinniApp.supportInstance.supportpersonid">Supportpersonid</span></th>
+                    <th scope="col" ><span jhiTranslate="jinniApp.supportInstance.supportpersonid">Supportpersonid</span></th>
+                    <th scope="col" ><span jhiTranslate="jinniApp.supportInstance.sessionid">Sessionid</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let supportInstance of supportInstances ;trackBy: trackId">
+                    <td><a [routerLink]="['/support-instance', supportInstance.id, 'view']">{{ supportInstance.id }}</a></td>
+                    <td>{{ supportInstance.starttime | date:'mediumDate' }}</td>
+                    <td>{{ supportInstance.endtime | date:'mediumDate' }}</td>
+                    <td>{{ supportInstance.chatlogs }}</td>
+                    <td>{{ supportInstance.sessionid }}</td>
+                    <td>{{ supportInstance.supportpersonid }}</td>
+                    <td>
+                        <div *ngIf="supportInstance.supportpersonid">
+                            <a [routerLink]="['/support-person', supportInstance.supportpersonid?.id, 'view']" >{{ supportInstance.supportpersonid?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="supportInstance.sessionid">
+                            <a [routerLink]="['/session', supportInstance.sessionid?.id, 'view']" >{{ supportInstance.sessionid?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/support-instance', supportInstance.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/support-instance', supportInstance.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(supportInstance)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

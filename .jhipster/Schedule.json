@@ -1,0 +1,82 @@
+{
+    "name": "Schedule",
+    "fields": [
+        {
+            "fieldName": "scheduledsetupstarttime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "actualsetupstarttime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "scheduledsetupendtime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "actualsetupendtime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "scheduledcandidatearrivaltime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "actualcandidatearrivaltime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "scheduledproctorarrivaltime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "actualproctorarrivaltime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "scheduledonboardingstarttime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "actualonboardingstarttime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "scheduledonboardingendtime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "actualonboardingendtime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "scheduledexamstarttime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "actualexamstarttime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "scheduledexamendtime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "actualexamendtime",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200513223200",
+    "javadoc": "Exam Schedule details mostly pulled from Gumtree.",
+    "entityTableName": "schedule",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-incident-heading" jhiTranslate="jinniApp.incident.home.createOrEditLabel">Create or edit a Incident</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.incident.sessionid" for="field_sessionid">Sessionid</label>
+                    <input type="number" class="form-control" name="sessionid" id="field_sessionid"
+                           formControlName="sessionid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.incident.majorincidentid" for="field_majorincidentid">Majorincidentid</label>
+                    <input type="number" class="form-control" name="majorincidentid" id="field_majorincidentid"
+                           formControlName="majorincidentid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.incident.failurestageid" for="field_failurestageid">Failurestageid</label>
+                    <input type="number" class="form-control" name="failurestageid" id="field_failurestageid"
+                           formControlName="failurestageid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.incident.summary" for="field_summary">Summary</label>
+                    <input type="text" class="form-control" name="summary" id="field_summary"
+                           formControlName="summary"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.incident.investigationreport" for="field_investigationreport">Investigationreport</label>
+                    <input type="text" class="form-control" name="investigationreport" id="field_investigationreport"
+                           formControlName="investigationreport"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.incident.servicenowticketid" for="field_servicenowticketid">Servicenowticketid</label>
+                    <input type="text" class="form-control" name="servicenowticketid" id="field_servicenowticketid"
+                           formControlName="servicenowticketid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.incident.sessionid" for="field_sessionid">Sessionid</label>
+                    <select class="form-control" id="field_sessionid" name="sessionid" formControlName="sessionid">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sessionOption.id === editForm.get('sessionid')!.value?.id ? editForm.get('sessionid')!.value : sessionOption" *ngFor="let sessionOption of sessionids; trackBy: trackById">{{ sessionOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.incident.failurestageid" for="field_failurestageid">Failurestageid</label>
+                    <select class="form-control" id="field_failurestageid" name="failurestageid" formControlName="failurestageid">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="failureStageOption.id === editForm.get('failurestageid')!.value?.id ? editForm.get('failurestageid')!.value : failureStageOption" *ngFor="let failureStageOption of failurestageids; trackBy: trackById">{{ failureStageOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.incident.majorincidentid" for="field_majorincidentid">Majorincidentid</label>
+                    <select class="form-control" id="field_majorincidentid" name="majorincidentid" formControlName="majorincidentid">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="majorIncidentOption.id === editForm.get('majorincidentid')!.value?.id ? editForm.get('majorincidentid')!.value : majorIncidentOption" *ngFor="let majorIncidentOption of majorincidents; trackBy: trackById">{{ majorIncidentOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

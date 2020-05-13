@@ -1,0 +1,27 @@
+{
+  "jinniApp": {
+    "subcategoryInstance": {
+      "home": {
+        "title": "Subcategory Instances",
+        "createLabel": "Create a new Subcategory Instance",
+        "createOrEditLabel": "Create or edit a Subcategory Instance",
+        "search": "Search for Subcategory Instance",
+        "notFound": "No Subcategory Instances found"
+      },
+      "created": "A new Subcategory Instance is created with identifier {{ param }}",
+      "updated": "A Subcategory Instance is updated with identifier {{ param }}",
+      "deleted": "A Subcategory Instance is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Subcategory Instance {{ id }}?"
+      },
+      "detail": {
+        "title": "Subcategory Instance"
+      },
+      "categoryinstanceid": "Categoryinstanceid",
+      "subcategoryid": "Subcategoryid",
+      "rank": "Rank",
+      "subcategoryid": "Subcategoryid",
+      "categoryinstanceid": "Categoryinstanceid"
+    }
+  }
+}

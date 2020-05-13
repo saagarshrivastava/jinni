@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="categoryInstance">
+            <h2><span jhiTranslate="jinniApp.categoryInstance.detail.title">Category Instance</span> {{ categoryInstance.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jinniApp.categoryInstance.incidentid">Incidentid</span></dt>
+                <dd>
+                    <span>{{ categoryInstance.incidentid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.categoryInstance.categoryid">Categoryid</span></dt>
+                <dd>
+                    <span>{{ categoryInstance.categoryid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.categoryInstance.rank">Rank</span></dt>
+                <dd>
+                    <span>{{ categoryInstance.rank }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.categoryInstance.categoryid">Categoryid</span></dt>
+                <dd>
+                    <div *ngIf="categoryInstance.categoryid">
+                        <a [routerLink]="['/category', categoryInstance.categoryid?.id, 'view']">{{ categoryInstance.categoryid?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.categoryInstance.incidentid">Incidentid</span></dt>
+                <dd>
+                    <div *ngIf="categoryInstance.incidentid">
+                        <a [routerLink]="['/incident', categoryInstance.incidentid?.id, 'view']">{{ categoryInstance.incidentid?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/category-instance', categoryInstance.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

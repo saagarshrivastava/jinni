@@ -1,0 +1,57 @@
+{
+    "name": "Offer",
+    "fields": [
+        {
+            "fieldName": "incidentid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "offertypeid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "examid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "discountpercentage",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "offerType",
+            "otherEntityRelationshipName": "offer",
+            "relationshipName": "offertypeid",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "incident",
+            "otherEntityRelationshipName": "offer",
+            "relationshipName": "incidentid",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "exam",
+            "otherEntityRelationshipName": "offer",
+            "relationshipName": "examid",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200513225700",
+    "javadoc": "Offer details",
+    "entityTableName": "offer",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
