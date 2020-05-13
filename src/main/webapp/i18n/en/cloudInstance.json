@@ -1,0 +1,28 @@
+{
+  "jinniApp": {
+    "cloudInstance": {
+      "home": {
+        "title": "Cloud Instances",
+        "createLabel": "Create a new Cloud Instance",
+        "createOrEditLabel": "Create or edit a Cloud Instance",
+        "search": "Search for Cloud Instance",
+        "notFound": "No Cloud Instances found"
+      },
+      "created": "A new Cloud Instance is created with identifier {{ param }}",
+      "updated": "A Cloud Instance is updated with identifier {{ param }}",
+      "deleted": "A Cloud Instance is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cloud Instance {{ id }}?"
+      },
+      "detail": {
+        "title": "Cloud Instance"
+      },
+      "code": "Code",
+      "description": "Description",
+      "cloudregionid": "Cloudregionid",
+      "exambackendid": "Exambackendid",
+      "cloudregionid": "Cloudregionid",
+      "exambackendid": "Exambackendid"
+    }
+  }
+}

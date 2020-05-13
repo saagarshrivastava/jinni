@@ -1,0 +1,38 @@
+{
+  "jinniApp": {
+    "schedule": {
+      "home": {
+        "title": "Schedules",
+        "createLabel": "Create a new Schedule",
+        "createOrEditLabel": "Create or edit a Schedule",
+        "search": "Search for Schedule",
+        "notFound": "No Schedules found"
+      },
+      "created": "A new Schedule is created with identifier {{ param }}",
+      "updated": "A Schedule is updated with identifier {{ param }}",
+      "deleted": "A Schedule is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Schedule {{ id }}?"
+      },
+      "detail": {
+        "title": "Schedule"
+      },
+      "scheduledsetupstarttime": "Scheduledsetupstarttime",
+      "actualsetupstarttime": "Actualsetupstarttime",
+      "scheduledsetupendtime": "Scheduledsetupendtime",
+      "actualsetupendtime": "Actualsetupendtime",
+      "scheduledcandidatearrivaltime": "Scheduledcandidatearrivaltime",
+      "actualcandidatearrivaltime": "Actualcandidatearrivaltime",
+      "scheduledproctorarrivaltime": "Scheduledproctorarrivaltime",
+      "actualproctorarrivaltime": "Actualproctorarrivaltime",
+      "scheduledonboardingstarttime": "Scheduledonboardingstarttime",
+      "actualonboardingstarttime": "Actualonboardingstarttime",
+      "scheduledonboardingendtime": "Scheduledonboardingendtime",
+      "actualonboardingendtime": "Actualonboardingendtime",
+      "scheduledexamstarttime": "Scheduledexamstarttime",
+      "actualexamstarttime": "Actualexamstarttime",
+      "scheduledexamendtime": "Scheduledexamendtime",
+      "actualexamendtime": "Actualexamendtime"
+    }
+  }
+}

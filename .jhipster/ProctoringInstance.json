@@ -1,0 +1,69 @@
+{
+    "name": "ProctoringInstance",
+    "fields": [
+        {
+            "fieldName": "proctorstarttime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "proctorendtime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "proctorid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "sessionid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "sessionnotes",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "proctorchat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "suspended",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "terminated",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "numberofbreaks",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "proctor",
+            "otherEntityRelationshipName": "proctoringInstance",
+            "relationshipName": "proctorid",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "session",
+            "otherEntityRelationshipName": "proctoringInstance",
+            "relationshipName": "sessionid",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200513223500",
+    "javadoc": "Proctoring Instance details",
+    "entityTableName": "proctoring_instance",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,24 @@
+{
+  "jinniApp": {
+    "majorIncidentSource": {
+      "home": {
+        "title": "Major Incident Sources",
+        "createLabel": "Create a new Major Incident Source",
+        "createOrEditLabel": "Create or edit a Major Incident Source",
+        "search": "Search for Major Incident Source",
+        "notFound": "No Major Incident Sources found"
+      },
+      "created": "A new Major Incident Source is created with identifier {{ param }}",
+      "updated": "A Major Incident Source is updated with identifier {{ param }}",
+      "deleted": "A Major Incident Source is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Major Incident Source {{ id }}?"
+      },
+      "detail": {
+        "title": "Major Incident Source"
+      },
+      "code": "Code",
+      "description": "Description"
+    }
+  }
+}

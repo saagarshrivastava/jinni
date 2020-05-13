@@ -1,0 +1,29 @@
+{
+  "jinniApp": {
+    "supportInstance": {
+      "home": {
+        "title": "Support Instances",
+        "createLabel": "Create a new Support Instance",
+        "createOrEditLabel": "Create or edit a Support Instance",
+        "search": "Search for Support Instance",
+        "notFound": "No Support Instances found"
+      },
+      "created": "A new Support Instance is created with identifier {{ param }}",
+      "updated": "A Support Instance is updated with identifier {{ param }}",
+      "deleted": "A Support Instance is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Support Instance {{ id }}?"
+      },
+      "detail": {
+        "title": "Support Instance"
+      },
+      "starttime": "Starttime",
+      "endtime": "Endtime",
+      "chatlogs": "Chatlogs",
+      "sessionid": "Sessionid",
+      "supportpersonid": "Supportpersonid",
+      "supportpersonid": "Supportpersonid",
+      "sessionid": "Sessionid"
+    }
+  }
+}

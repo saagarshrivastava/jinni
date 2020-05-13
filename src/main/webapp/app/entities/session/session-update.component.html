@@ -1,0 +1,144 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-session-heading" jhiTranslate="jinniApp.session.home.createOrEditLabel">Create or edit a Session</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.session.scheduleid" for="field_scheduleid">Scheduleid</label>
+                    <input type="number" class="form-control" name="scheduleid" id="field_scheduleid"
+                           formControlName="scheduleid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.session.candidateid" for="field_candidateid">Candidateid</label>
+                    <input type="number" class="form-control" name="candidateid" id="field_candidateid"
+                           formControlName="candidateid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.session.locationid" for="field_locationid">Locationid</label>
+                    <input type="number" class="form-control" name="locationid" id="field_locationid"
+                           formControlName="locationid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.session.examtypeid" for="field_examtypeid">Examtypeid</label>
+                    <input type="number" class="form-control" name="examtypeid" id="field_examtypeid"
+                           formControlName="examtypeid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.session.deliverytypeid" for="field_deliverytypeid">Deliverytypeid</label>
+                    <input type="number" class="form-control" name="deliverytypeid" id="field_deliverytypeid"
+                           formControlName="deliverytypeid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.session.deliverystatusid" for="field_deliverystatusid">Deliverystatusid</label>
+                    <input type="number" class="form-control" name="deliverystatusid" id="field_deliverystatusid"
+                           formControlName="deliverystatusid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.session.examid" for="field_examid">Examid</label>
+                    <input type="number" class="form-control" name="examid" id="field_examid"
+                           formControlName="examid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.session.exambackendid" for="field_exambackendid">Exambackendid</label>
+                    <input type="number" class="form-control" name="exambackendid" id="field_exambackendid"
+                           formControlName="exambackendid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.session.reservationid" for="field_reservationid">Reservationid</label>
+                    <input type="text" class="form-control" name="reservationid" id="field_reservationid"
+                           formControlName="reservationid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.session.scheduleid" for="field_scheduleid">Scheduleid</label>
+                    <select class="form-control" id="field_scheduleid" name="scheduleid" formControlName="scheduleid">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="scheduleOption.id === editForm.get('scheduleid')!.value?.id ? editForm.get('scheduleid')!.value : scheduleOption" *ngFor="let scheduleOption of scheduleids; trackBy: trackById">{{ scheduleOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.session.candidateid" for="field_candidateid">Candidateid</label>
+                    <select class="form-control" id="field_candidateid" name="candidateid" formControlName="candidateid">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="candidateOption.id === editForm.get('candidateid')!.value?.id ? editForm.get('candidateid')!.value : candidateOption" *ngFor="let candidateOption of candidateids; trackBy: trackById">{{ candidateOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.session.locationid" for="field_locationid">Locationid</label>
+                    <select class="form-control" id="field_locationid" name="locationid" formControlName="locationid">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="locationOption.id === editForm.get('locationid')!.value?.id ? editForm.get('locationid')!.value : locationOption" *ngFor="let locationOption of locationids; trackBy: trackById">{{ locationOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.session.examtypeid" for="field_examtypeid">Examtypeid</label>
+                    <select class="form-control" id="field_examtypeid" name="examtypeid" formControlName="examtypeid">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="examTypeOption.id === editForm.get('examtypeid')!.value?.id ? editForm.get('examtypeid')!.value : examTypeOption" *ngFor="let examTypeOption of examtypeids; trackBy: trackById">{{ examTypeOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.session.deliverytypeid" for="field_deliverytypeid">Deliverytypeid</label>
+                    <select class="form-control" id="field_deliverytypeid" name="deliverytypeid" formControlName="deliverytypeid">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="deliveryTypeOption.id === editForm.get('deliverytypeid')!.value?.id ? editForm.get('deliverytypeid')!.value : deliveryTypeOption" *ngFor="let deliveryTypeOption of deliverytypeids; trackBy: trackById">{{ deliveryTypeOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.session.deliverystatusid" for="field_deliverystatusid">Deliverystatusid</label>
+                    <select class="form-control" id="field_deliverystatusid" name="deliverystatusid" formControlName="deliverystatusid">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="deliveryStatusOption.id === editForm.get('deliverystatusid')!.value?.id ? editForm.get('deliverystatusid')!.value : deliveryStatusOption" *ngFor="let deliveryStatusOption of deliverystatusids; trackBy: trackById">{{ deliveryStatusOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.session.examid" for="field_examid">Examid</label>
+                    <select class="form-control" id="field_examid" name="examid" formControlName="examid">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="examOption.id === editForm.get('examid')!.value?.id ? editForm.get('examid')!.value : examOption" *ngFor="let examOption of examids; trackBy: trackById">{{ examOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.session.exambackendid" for="field_exambackendid">Exambackendid</label>
+                    <select class="form-control" id="field_exambackendid" name="exambackendid" formControlName="exambackendid">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="examBackendOption.id === editForm.get('exambackendid')!.value?.id ? editForm.get('exambackendid')!.value : examBackendOption" *ngFor="let examBackendOption of exambackendids; trackBy: trackById">{{ examBackendOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

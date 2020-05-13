@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <!--
+        Added the constraints for entity CloudInstance.
+    -->
+    <changeSet id="20200513225500-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="cloudregionid_id"
+                                 baseTableName="cloud_instance"
+                                 constraintName="fk_cloud_instance_cloudregionid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cloud_region"/>
+
+        <addForeignKeyConstraint baseColumnNames="exambackendid_id"
+                                 baseTableName="cloud_instance"
+                                 constraintName="fk_cloud_instance_exambackendid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="exam_backend"/>
+
+    </changeSet>
+</databaseChangeLog>

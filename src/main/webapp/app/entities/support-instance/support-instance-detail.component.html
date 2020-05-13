@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="supportInstance">
+            <h2><span jhiTranslate="jinniApp.supportInstance.detail.title">Support Instance</span> {{ supportInstance.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jinniApp.supportInstance.starttime">Starttime</span></dt>
+                <dd>
+                    <span>{{ supportInstance.starttime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.supportInstance.endtime">Endtime</span></dt>
+                <dd>
+                    <span>{{ supportInstance.endtime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.supportInstance.chatlogs">Chatlogs</span></dt>
+                <dd>
+                    <span>{{ supportInstance.chatlogs }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.supportInstance.sessionid">Sessionid</span></dt>
+                <dd>
+                    <span>{{ supportInstance.sessionid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.supportInstance.supportpersonid">Supportpersonid</span></dt>
+                <dd>
+                    <span>{{ supportInstance.supportpersonid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.supportInstance.supportpersonid">Supportpersonid</span></dt>
+                <dd>
+                    <div *ngIf="supportInstance.supportpersonid">
+                        <a [routerLink]="['/support-person', supportInstance.supportpersonid?.id, 'view']">{{ supportInstance.supportpersonid?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.supportInstance.sessionid">Sessionid</span></dt>
+                <dd>
+                    <div *ngIf="supportInstance.sessionid">
+                        <a [routerLink]="['/session', supportInstance.sessionid?.id, 'view']">{{ supportInstance.sessionid?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/support-instance', supportInstance.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="proctoringInstance">
+            <h2><span jhiTranslate="jinniApp.proctoringInstance.detail.title">Proctoring Instance</span> {{ proctoringInstance.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jinniApp.proctoringInstance.proctorstarttime">Proctorstarttime</span></dt>
+                <dd>
+                    <span>{{ proctoringInstance.proctorstarttime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.proctoringInstance.proctorendtime">Proctorendtime</span></dt>
+                <dd>
+                    <span>{{ proctoringInstance.proctorendtime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.proctoringInstance.proctorid">Proctorid</span></dt>
+                <dd>
+                    <span>{{ proctoringInstance.proctorid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.proctoringInstance.sessionid">Sessionid</span></dt>
+                <dd>
+                    <span>{{ proctoringInstance.sessionid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.proctoringInstance.sessionnotes">Sessionnotes</span></dt>
+                <dd>
+                    <span>{{ proctoringInstance.sessionnotes }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.proctoringInstance.proctorchat">Proctorchat</span></dt>
+                <dd>
+                    <span>{{ proctoringInstance.proctorchat }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.proctoringInstance.suspended">Suspended</span></dt>
+                <dd>
+                    <span>{{ proctoringInstance.suspended }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.proctoringInstance.terminated">Terminated</span></dt>
+                <dd>
+                    <span>{{ proctoringInstance.terminated }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.proctoringInstance.numberofbreaks">Numberofbreaks</span></dt>
+                <dd>
+                    <span>{{ proctoringInstance.numberofbreaks }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.proctoringInstance.proctorid">Proctorid</span></dt>
+                <dd>
+                    <div *ngIf="proctoringInstance.proctorid">
+                        <a [routerLink]="['/proctor', proctoringInstance.proctorid?.id, 'view']">{{ proctoringInstance.proctorid?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.proctoringInstance.sessionid">Sessionid</span></dt>
+                <dd>
+                    <div *ngIf="proctoringInstance.sessionid">
+                        <a [routerLink]="['/session', proctoringInstance.sessionid?.id, 'view']">{{ proctoringInstance.sessionid?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/proctoring-instance', proctoringInstance.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

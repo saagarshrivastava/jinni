@@ -1,0 +1,24 @@
+{
+  "jinniApp": {
+    "offerType": {
+      "home": {
+        "title": "Offer Types",
+        "createLabel": "Create a new Offer Type",
+        "createOrEditLabel": "Create or edit a Offer Type",
+        "search": "Search for Offer Type",
+        "notFound": "No Offer Types found"
+      },
+      "created": "A new Offer Type is created with identifier {{ param }}",
+      "updated": "A Offer Type is updated with identifier {{ param }}",
+      "deleted": "A Offer Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Offer Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Offer Type"
+      },
+      "code": "Code",
+      "description": "Description"
+    }
+  }
+}

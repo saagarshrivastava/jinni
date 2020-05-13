@@ -1,0 +1,104 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-proctoring-instance-heading" jhiTranslate="jinniApp.proctoringInstance.home.createOrEditLabel">Create or edit a Proctoring Instance</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.proctoringInstance.proctorstarttime" for="field_proctorstarttime">Proctorstarttime</label>
+                    <div class="input-group">
+                        <input id="field_proctorstarttime" type="text" class="form-control" name="proctorstarttime" ngbDatepicker #proctorstarttimeDp="ngbDatepicker" formControlName="proctorstarttime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="proctorstarttimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.proctoringInstance.proctorendtime" for="field_proctorendtime">Proctorendtime</label>
+                    <div class="input-group">
+                        <input id="field_proctorendtime" type="text" class="form-control" name="proctorendtime" ngbDatepicker #proctorendtimeDp="ngbDatepicker" formControlName="proctorendtime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="proctorendtimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.proctoringInstance.proctorid" for="field_proctorid">Proctorid</label>
+                    <input type="number" class="form-control" name="proctorid" id="field_proctorid"
+                           formControlName="proctorid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.proctoringInstance.sessionid" for="field_sessionid">Sessionid</label>
+                    <input type="number" class="form-control" name="sessionid" id="field_sessionid"
+                           formControlName="sessionid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.proctoringInstance.sessionnotes" for="field_sessionnotes">Sessionnotes</label>
+                    <input type="text" class="form-control" name="sessionnotes" id="field_sessionnotes"
+                           formControlName="sessionnotes"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.proctoringInstance.proctorchat" for="field_proctorchat">Proctorchat</label>
+                    <input type="text" class="form-control" name="proctorchat" id="field_proctorchat"
+                           formControlName="proctorchat"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.proctoringInstance.suspended" for="field_suspended">Suspended</label>
+                    <input type="checkbox" class="form-control" name="suspended" id="field_suspended"
+                           formControlName="suspended"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.proctoringInstance.terminated" for="field_terminated">Terminated</label>
+                    <input type="checkbox" class="form-control" name="terminated" id="field_terminated"
+                           formControlName="terminated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.proctoringInstance.numberofbreaks" for="field_numberofbreaks">Numberofbreaks</label>
+                    <input type="number" class="form-control" name="numberofbreaks" id="field_numberofbreaks"
+                           formControlName="numberofbreaks"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.proctoringInstance.proctorid" for="field_proctorid">Proctorid</label>
+                    <select class="form-control" id="field_proctorid" name="proctorid" formControlName="proctorid">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="proctorOption.id === editForm.get('proctorid')!.value?.id ? editForm.get('proctorid')!.value : proctorOption" *ngFor="let proctorOption of proctors; trackBy: trackById">{{ proctorOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.proctoringInstance.sessionid" for="field_sessionid">Sessionid</label>
+                    <select class="form-control" id="field_sessionid" name="sessionid" formControlName="sessionid">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sessionOption.id === editForm.get('sessionid')!.value?.id ? editForm.get('sessionid')!.value : sessionOption" *ngFor="let sessionOption of sessions; trackBy: trackById">{{ sessionOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

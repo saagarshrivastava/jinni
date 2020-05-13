@@ -1,0 +1,38 @@
+{
+    "name": "SessionBreaks",
+    "fields": [
+        {
+            "fieldName": "starttime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "endtime",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "proctoringinstanceid",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "proctoringInstance",
+            "otherEntityRelationshipName": "sessionBreaks",
+            "relationshipName": "proctoringinstanceid",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200513223600",
+    "javadoc": "Session Breaks details",
+    "entityTableName": "session_breaks",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

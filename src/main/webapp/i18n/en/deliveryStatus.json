@@ -1,0 +1,24 @@
+{
+  "jinniApp": {
+    "deliveryStatus": {
+      "home": {
+        "title": "Delivery Statuses",
+        "createLabel": "Create a new Delivery Status",
+        "createOrEditLabel": "Create or edit a Delivery Status",
+        "search": "Search for Delivery Status",
+        "notFound": "No Delivery Statuses found"
+      },
+      "created": "A new Delivery Status is created with identifier {{ param }}",
+      "updated": "A Delivery Status is updated with identifier {{ param }}",
+      "deleted": "A Delivery Status is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Delivery Status {{ id }}?"
+      },
+      "detail": {
+        "title": "Delivery Status"
+      },
+      "code": "Code",
+      "description": "Description"
+    }
+  }
+}

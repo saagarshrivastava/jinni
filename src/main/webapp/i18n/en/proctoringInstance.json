@@ -1,0 +1,33 @@
+{
+  "jinniApp": {
+    "proctoringInstance": {
+      "home": {
+        "title": "Proctoring Instances",
+        "createLabel": "Create a new Proctoring Instance",
+        "createOrEditLabel": "Create or edit a Proctoring Instance",
+        "search": "Search for Proctoring Instance",
+        "notFound": "No Proctoring Instances found"
+      },
+      "created": "A new Proctoring Instance is created with identifier {{ param }}",
+      "updated": "A Proctoring Instance is updated with identifier {{ param }}",
+      "deleted": "A Proctoring Instance is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Proctoring Instance {{ id }}?"
+      },
+      "detail": {
+        "title": "Proctoring Instance"
+      },
+      "proctorstarttime": "Proctorstarttime",
+      "proctorendtime": "Proctorendtime",
+      "proctorid": "Proctorid",
+      "sessionid": "Sessionid",
+      "sessionnotes": "Sessionnotes",
+      "proctorchat": "Proctorchat",
+      "suspended": "Suspended",
+      "terminated": "Terminated",
+      "numberofbreaks": "Numberofbreaks",
+      "proctorid": "Proctorid",
+      "sessionid": "Sessionid"
+    }
+  }
+}

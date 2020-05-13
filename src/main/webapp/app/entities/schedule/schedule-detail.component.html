@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="schedule">
+            <h2><span jhiTranslate="jinniApp.schedule.detail.title">Schedule</span> {{ schedule.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jinniApp.schedule.scheduledsetupstarttime">Scheduledsetupstarttime</span></dt>
+                <dd>
+                    <span>{{ schedule.scheduledsetupstarttime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.schedule.actualsetupstarttime">Actualsetupstarttime</span></dt>
+                <dd>
+                    <span>{{ schedule.actualsetupstarttime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.schedule.scheduledsetupendtime">Scheduledsetupendtime</span></dt>
+                <dd>
+                    <span>{{ schedule.scheduledsetupendtime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.schedule.actualsetupendtime">Actualsetupendtime</span></dt>
+                <dd>
+                    <span>{{ schedule.actualsetupendtime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.schedule.scheduledcandidatearrivaltime">Scheduledcandidatearrivaltime</span></dt>
+                <dd>
+                    <span>{{ schedule.scheduledcandidatearrivaltime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.schedule.actualcandidatearrivaltime">Actualcandidatearrivaltime</span></dt>
+                <dd>
+                    <span>{{ schedule.actualcandidatearrivaltime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.schedule.scheduledproctorarrivaltime">Scheduledproctorarrivaltime</span></dt>
+                <dd>
+                    <span>{{ schedule.scheduledproctorarrivaltime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.schedule.actualproctorarrivaltime">Actualproctorarrivaltime</span></dt>
+                <dd>
+                    <span>{{ schedule.actualproctorarrivaltime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.schedule.scheduledonboardingstarttime">Scheduledonboardingstarttime</span></dt>
+                <dd>
+                    <span>{{ schedule.scheduledonboardingstarttime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.schedule.actualonboardingstarttime">Actualonboardingstarttime</span></dt>
+                <dd>
+                    <span>{{ schedule.actualonboardingstarttime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.schedule.scheduledonboardingendtime">Scheduledonboardingendtime</span></dt>
+                <dd>
+                    <span>{{ schedule.scheduledonboardingendtime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.schedule.actualonboardingendtime">Actualonboardingendtime</span></dt>
+                <dd>
+                    <span>{{ schedule.actualonboardingendtime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.schedule.scheduledexamstarttime">Scheduledexamstarttime</span></dt>
+                <dd>
+                    <span>{{ schedule.scheduledexamstarttime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.schedule.actualexamstarttime">Actualexamstarttime</span></dt>
+                <dd>
+                    <span>{{ schedule.actualexamstarttime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.schedule.scheduledexamendtime">Scheduledexamendtime</span></dt>
+                <dd>
+                    <span>{{ schedule.scheduledexamendtime }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.schedule.actualexamendtime">Actualexamendtime</span></dt>
+                <dd>
+                    <span>{{ schedule.actualexamendtime }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/schedule', schedule.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

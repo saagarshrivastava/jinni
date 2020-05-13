@@ -1,0 +1,46 @@
+{
+    "name": "Location",
+    "fields": [
+        {
+            "fieldName": "rhieid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "country",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "partner",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "regionid",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "region",
+            "otherEntityRelationshipName": "location",
+            "relationshipName": "regionid",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200513223400",
+    "javadoc": "Location details from Gumtree",
+    "entityTableName": "location",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

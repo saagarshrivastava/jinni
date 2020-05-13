@@ -1,0 +1,186 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-schedule-heading" jhiTranslate="jinniApp.schedule.home.createOrEditLabel">Create or edit a Schedule</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.schedule.scheduledsetupstarttime" for="field_scheduledsetupstarttime">Scheduledsetupstarttime</label>
+                    <div class="input-group">
+                        <input id="field_scheduledsetupstarttime" type="text" class="form-control" name="scheduledsetupstarttime" ngbDatepicker #scheduledsetupstarttimeDp="ngbDatepicker" formControlName="scheduledsetupstarttime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="scheduledsetupstarttimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.schedule.actualsetupstarttime" for="field_actualsetupstarttime">Actualsetupstarttime</label>
+                    <div class="input-group">
+                        <input id="field_actualsetupstarttime" type="text" class="form-control" name="actualsetupstarttime" ngbDatepicker #actualsetupstarttimeDp="ngbDatepicker" formControlName="actualsetupstarttime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="actualsetupstarttimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.schedule.scheduledsetupendtime" for="field_scheduledsetupendtime">Scheduledsetupendtime</label>
+                    <div class="input-group">
+                        <input id="field_scheduledsetupendtime" type="text" class="form-control" name="scheduledsetupendtime" ngbDatepicker #scheduledsetupendtimeDp="ngbDatepicker" formControlName="scheduledsetupendtime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="scheduledsetupendtimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.schedule.actualsetupendtime" for="field_actualsetupendtime">Actualsetupendtime</label>
+                    <div class="input-group">
+                        <input id="field_actualsetupendtime" type="text" class="form-control" name="actualsetupendtime" ngbDatepicker #actualsetupendtimeDp="ngbDatepicker" formControlName="actualsetupendtime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="actualsetupendtimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.schedule.scheduledcandidatearrivaltime" for="field_scheduledcandidatearrivaltime">Scheduledcandidatearrivaltime</label>
+                    <div class="input-group">
+                        <input id="field_scheduledcandidatearrivaltime" type="text" class="form-control" name="scheduledcandidatearrivaltime" ngbDatepicker #scheduledcandidatearrivaltimeDp="ngbDatepicker" formControlName="scheduledcandidatearrivaltime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="scheduledcandidatearrivaltimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.schedule.actualcandidatearrivaltime" for="field_actualcandidatearrivaltime">Actualcandidatearrivaltime</label>
+                    <div class="input-group">
+                        <input id="field_actualcandidatearrivaltime" type="text" class="form-control" name="actualcandidatearrivaltime" ngbDatepicker #actualcandidatearrivaltimeDp="ngbDatepicker" formControlName="actualcandidatearrivaltime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="actualcandidatearrivaltimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.schedule.scheduledproctorarrivaltime" for="field_scheduledproctorarrivaltime">Scheduledproctorarrivaltime</label>
+                    <div class="input-group">
+                        <input id="field_scheduledproctorarrivaltime" type="text" class="form-control" name="scheduledproctorarrivaltime" ngbDatepicker #scheduledproctorarrivaltimeDp="ngbDatepicker" formControlName="scheduledproctorarrivaltime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="scheduledproctorarrivaltimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.schedule.actualproctorarrivaltime" for="field_actualproctorarrivaltime">Actualproctorarrivaltime</label>
+                    <div class="input-group">
+                        <input id="field_actualproctorarrivaltime" type="text" class="form-control" name="actualproctorarrivaltime" ngbDatepicker #actualproctorarrivaltimeDp="ngbDatepicker" formControlName="actualproctorarrivaltime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="actualproctorarrivaltimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.schedule.scheduledonboardingstarttime" for="field_scheduledonboardingstarttime">Scheduledonboardingstarttime</label>
+                    <div class="input-group">
+                        <input id="field_scheduledonboardingstarttime" type="text" class="form-control" name="scheduledonboardingstarttime" ngbDatepicker #scheduledonboardingstarttimeDp="ngbDatepicker" formControlName="scheduledonboardingstarttime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="scheduledonboardingstarttimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.schedule.actualonboardingstarttime" for="field_actualonboardingstarttime">Actualonboardingstarttime</label>
+                    <div class="input-group">
+                        <input id="field_actualonboardingstarttime" type="text" class="form-control" name="actualonboardingstarttime" ngbDatepicker #actualonboardingstarttimeDp="ngbDatepicker" formControlName="actualonboardingstarttime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="actualonboardingstarttimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.schedule.scheduledonboardingendtime" for="field_scheduledonboardingendtime">Scheduledonboardingendtime</label>
+                    <div class="input-group">
+                        <input id="field_scheduledonboardingendtime" type="text" class="form-control" name="scheduledonboardingendtime" ngbDatepicker #scheduledonboardingendtimeDp="ngbDatepicker" formControlName="scheduledonboardingendtime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="scheduledonboardingendtimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.schedule.actualonboardingendtime" for="field_actualonboardingendtime">Actualonboardingendtime</label>
+                    <div class="input-group">
+                        <input id="field_actualonboardingendtime" type="text" class="form-control" name="actualonboardingendtime" ngbDatepicker #actualonboardingendtimeDp="ngbDatepicker" formControlName="actualonboardingendtime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="actualonboardingendtimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.schedule.scheduledexamstarttime" for="field_scheduledexamstarttime">Scheduledexamstarttime</label>
+                    <div class="input-group">
+                        <input id="field_scheduledexamstarttime" type="text" class="form-control" name="scheduledexamstarttime" ngbDatepicker #scheduledexamstarttimeDp="ngbDatepicker" formControlName="scheduledexamstarttime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="scheduledexamstarttimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.schedule.actualexamstarttime" for="field_actualexamstarttime">Actualexamstarttime</label>
+                    <div class="input-group">
+                        <input id="field_actualexamstarttime" type="text" class="form-control" name="actualexamstarttime" ngbDatepicker #actualexamstarttimeDp="ngbDatepicker" formControlName="actualexamstarttime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="actualexamstarttimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.schedule.scheduledexamendtime" for="field_scheduledexamendtime">Scheduledexamendtime</label>
+                    <div class="input-group">
+                        <input id="field_scheduledexamendtime" type="text" class="form-control" name="scheduledexamendtime" ngbDatepicker #scheduledexamendtimeDp="ngbDatepicker" formControlName="scheduledexamendtime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="scheduledexamendtimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jinniApp.schedule.actualexamendtime" for="field_actualexamendtime">Actualexamendtime</label>
+                    <div class="input-group">
+                        <input id="field_actualexamendtime" type="text" class="form-control" name="actualexamendtime" ngbDatepicker #actualexamendtimeDp="ngbDatepicker" formControlName="actualexamendtime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="actualexamendtimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

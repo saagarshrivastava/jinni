@@ -1,0 +1,110 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="session">
+            <h2><span jhiTranslate="jinniApp.session.detail.title">Session</span> {{ session.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jinniApp.session.scheduleid">Scheduleid</span></dt>
+                <dd>
+                    <span>{{ session.scheduleid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.session.candidateid">Candidateid</span></dt>
+                <dd>
+                    <span>{{ session.candidateid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.session.locationid">Locationid</span></dt>
+                <dd>
+                    <span>{{ session.locationid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.session.examtypeid">Examtypeid</span></dt>
+                <dd>
+                    <span>{{ session.examtypeid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.session.deliverytypeid">Deliverytypeid</span></dt>
+                <dd>
+                    <span>{{ session.deliverytypeid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.session.deliverystatusid">Deliverystatusid</span></dt>
+                <dd>
+                    <span>{{ session.deliverystatusid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.session.examid">Examid</span></dt>
+                <dd>
+                    <span>{{ session.examid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.session.exambackendid">Exambackendid</span></dt>
+                <dd>
+                    <span>{{ session.exambackendid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.session.reservationid">Reservationid</span></dt>
+                <dd>
+                    <span>{{ session.reservationid }}</span>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.session.scheduleid">Scheduleid</span></dt>
+                <dd>
+                    <div *ngIf="session.scheduleid">
+                        <a [routerLink]="['/schedule', session.scheduleid?.id, 'view']">{{ session.scheduleid?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.session.candidateid">Candidateid</span></dt>
+                <dd>
+                    <div *ngIf="session.candidateid">
+                        <a [routerLink]="['/candidate', session.candidateid?.id, 'view']">{{ session.candidateid?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.session.locationid">Locationid</span></dt>
+                <dd>
+                    <div *ngIf="session.locationid">
+                        <a [routerLink]="['/location', session.locationid?.id, 'view']">{{ session.locationid?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.session.examtypeid">Examtypeid</span></dt>
+                <dd>
+                    <div *ngIf="session.examtypeid">
+                        <a [routerLink]="['/exam-type', session.examtypeid?.id, 'view']">{{ session.examtypeid?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.session.deliverytypeid">Deliverytypeid</span></dt>
+                <dd>
+                    <div *ngIf="session.deliverytypeid">
+                        <a [routerLink]="['/delivery-type', session.deliverytypeid?.id, 'view']">{{ session.deliverytypeid?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.session.deliverystatusid">Deliverystatusid</span></dt>
+                <dd>
+                    <div *ngIf="session.deliverystatusid">
+                        <a [routerLink]="['/delivery-status', session.deliverystatusid?.id, 'view']">{{ session.deliverystatusid?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.session.examid">Examid</span></dt>
+                <dd>
+                    <div *ngIf="session.examid">
+                        <a [routerLink]="['/exam', session.examid?.id, 'view']">{{ session.examid?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jinniApp.session.exambackendid">Exambackendid</span></dt>
+                <dd>
+                    <div *ngIf="session.exambackendid">
+                        <a [routerLink]="['/exam-backend', session.exambackendid?.id, 'view']">{{ session.exambackendid?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/session', session.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

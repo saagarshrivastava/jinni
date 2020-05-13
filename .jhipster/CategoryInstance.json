@@ -1,0 +1,46 @@
+{
+    "name": "CategoryInstance",
+    "fields": [
+        {
+            "fieldName": "incidentid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "categoryid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "rank",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "category",
+            "otherEntityRelationshipName": "categoryInstance",
+            "relationshipName": "categoryid",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "incident",
+            "otherEntityRelationshipName": "categoryInstance",
+            "relationshipName": "incidentid",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200513223800",
+    "javadoc": "Category Instance details",
+    "entityTableName": "category_instance",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

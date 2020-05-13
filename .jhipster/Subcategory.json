@@ -1,0 +1,38 @@
+{
+    "name": "Subcategory",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "categoryid",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "category",
+            "otherEntityRelationshipName": "subcategory",
+            "relationshipName": "categoryid",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200513225000",
+    "javadoc": "Subcategory details",
+    "entityTableName": "subcategory",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
