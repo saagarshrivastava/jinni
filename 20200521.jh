@@ -1,0 +1,410 @@
+/**
+ * Schema for Traquer-2.0
+ *
+ */
+
+/**
+ * An exam session related information.
+ * This includes a number of duplicate (read only) properties 
+ * from other entities which are there to make querying easier.
+ */
+entity Session {
+    id Integer
+	scheduleid Integer            // Links to Schedule details
+	candidateid Integer        // Links to Candidate details
+	locationid Integer            // Links Location details
+	examoutcomid Integer        // Links to Exam Type details
+	deliverytypeid Integer    // Links to Delivery Type details
+	deliverystatusid Integer    // Links to Delivery Status details
+	examid Integer                // Links to Exam details
+	exambackendid Integer        // Links to Exam Backend details
+	reservationid String // The exam session ID
+    preallocatedproctorid String
+}
+relationship OneToOne {
+    Session{scheduleid} to Schedule
+    Session{candidateid} to Candidate
+    Session{locationid} to Location
+    Session{examoutcomid} to ExamOutcom
+    Session{deliverytypeid} to DeliveryType
+    Session{deliverystatusid} to DeliveryStatus
+    Session{examid} to Exam
+    Session{exambackendid} to ExamBackend
+    Session{preallocatedproctorid} to Proctor
+}
+/**
+ * Exam Schedule details mostly pulled from Gumtree.
+ */
+entity Schedule {
+    id Integer
+    scheduledsetupstarttime LocalDate           // Scheduled exam setup start time from Gumtree
+    actualsetupstarttime LocalDate               // Actual exam setup start time from Gumtree
+    scheduledsetupendtime LocalDate           // Scheduled exam setup end time from Gumtree
+    actualsetupendtime LocalDate               // Actual exam setup start time from Gumtree
+    scheduledcandidatearrivaltime LocalDate   // Scheduled Candidate SSO login time calculated from Gumtree
+    actualcandidatearrivaltime LocalDate       // Actual Candidate SSO login time from ???
+    scheduledproctorarrivaltime LocalDate       // Scheduled proctor attendance time Calculated from Gumtree
+    actualproctorarrivaltime LocalDate           // Actual proctor attendance time from ???
+    scheduledonboardingstarttime LocalDate       // Scheduled onboarding start time calculated from Gumtree
+    actualonboardingstarttime LocalDate       // Actual onboarding start time from ???
+    scheduledonboardingendtime LocalDate       // Scheduled onboarding end time calculated from Gumtree
+    actualonboardingendtime LocalDate           // Actual onboarding end time calculated from Gumtree
+    scheduledexamstarttime LocalDate           // Scheduled exam start time from Gumtree
+    actualexamstarttime LocalDate               // Actual exam start time from Gumtree
+    scheduledexamendtime LocalDate               // Scheduled exam end time from Gumtree
+    actualexamendtime LocalDate // Actual exam end time from Gumtree
+}
+/**
+ * Candidate details from Gumtree
+ */
+entity Candidate {
+    id Integer
+	name String      // Candidate Name from Gumtree session details
+	email String     // Candidate Email from Gumtree session details
+	certid String    // Candidate CertID from IES??
+	rhid String // Candidate redhat.com username from IES??
+}
+/**
+ * Location details from Gumtree
+ */
+entity Location {
+    id Integer
+    rhieid Integer     // RHIE ID from Gumtree
+    city String         // City from Gumtree
+    country String      // Country alpha 2 ISO code from Gumtree
+    partner String      // Partner business name from Gumtree
+    regionid Integer // Link to the Region details
+}
+relationship ManyToOne {
+    Location{regionid} to Region
+}
+/**
+ * Region details
+ */
+entity Region {
+    id Integer
+	code String
+	description String
+}
+/**
+ * Exam Outcome details
+ */
+entity ExamOutcom {
+    id Integer
+	code String
+	description String
+}
+/**
+ * Delivery Type details
+ */
+entity DeliveryType {
+    id Integer
+	code String
+	description String
+}
+/**
+ * Delivery Status details
+ */
+entity DeliveryStatus {
+    id Integer
+	code String
+	description String
+}
+/**
+ * Exam details
+ */
+entity Exam {
+    id Integer
+	code String
+	description String
+    version String
+}
+/**
+ * Gumtree Alerts that are sent to GumtreeAlerts Chat room
+ */
+entity GumtreeAlerts {
+    id Integer
+    reservationid Integer
+    examstage String
+    message String
+}
+relationship ManyToOne {
+    GumtreeAlerts{reservationid} to Session{reservationid}
+}
+/**
+ * Exam Backend details
+ */
+entity ExamBackend {
+    id Integer
+	code String
+	description String
+}
+/**
+ * Cloud Instance details
+ */
+entity CloudInstance {
+    id Integer
+	code String
+	description String
+    cloudproviderid Integer
+    exambackendid Integer
+}
+relationship OneToOne {
+    CloudInstance{cloudproviderid} to CloudProvider
+    CloudInstance{exambackendid} to ExamBackend
+}
+/**
+ * Cloud Provider details
+ */
+entity CloudProvider {
+    id Integer
+	code String
+	description String
+}
+/**
+ * Cloud Region details
+ */
+entity CloudRegion {
+    id Integer
+	code String
+	description String
+    cloudproviderid String
+}
+relationship ManyToOne {
+    CloudRegion{cloudproviderid} to CloudProvider
+}
+/**
+ * Proctoring Instance details
+ */
+entity ProctoringInstance {
+    id Integer
+	proctorstarttime LocalDate
+	proctorendtime LocalDate
+	proctorid Integer
+	reservationid Integer
+	sessionnotes String
+	proctorchat String
+	suspended Boolean
+	terminated Boolean
+	numberofbreaks Integer
+}
+relationship ManyToOne {
+    ProctoringInstance{reservationid} to Session{reservationid}
+}
+relationship OneToOne {
+    ProctoringInstance{proctorid} to Proctor
+}
+/**
+ * Proctor details
+ */
+entity Proctor {
+    id Integer
+	name String
+	email String
+	office String
+}
+/**
+ * Session Breaks details
+ */
+entity SessionBreaks {
+    id Integer
+	starttime LocalDate
+	endtime LocalDate
+	proctoringinstanceid Integer
+}
+relationship ManyToOne {
+    SessionBreaks{proctoringinstanceid} to ProctoringInstance
+}
+/**
+ * Incident details
+ */
+entity Incident {
+    id Integer
+    reservationid Integer
+    majorincidentid Integer
+    failurestageid Integer
+    summary String
+    investigationreportid Integer
+    servicenowticketid String
+}
+relationship OneToOne {
+    Incident{reservationid} to Session{reservationid}
+    Incident{failurestageid} to FailureStage
+    Incident{investigationreportid} to InvestigationReport
+}
+relationship ManyToOne {
+    Incident{majorincidentid} to MajorIncident
+}
+/**
+ * Investigation Report details
+ */
+entity InvestigationReport {
+    id Integer
+    proctorsessionnotes String
+    proctorchat String
+    supportcalls String
+    level2supportcalls String
+    gumtreelogs String
+    desktopvideo String
+    cameravideo String
+    examreadme String
+    cxhistory String
+    review String
+    conclusion String
+    offernotes String
+}
+/**
+ * Category Instance details
+ */
+entity CategoryInstance {
+    id Integer
+    incidentid Integer
+    categoryid Integer
+    rank Integer
+}
+relationship ManyToOne {
+    CategoryInstance{incidentid} to Incident
+}
+relationship OneToOne {
+    CategoryInstance{categoryid} to Category
+}
+/**
+ * Subcategory Instance details
+ */
+entity SubcategoryInstance {
+    id Integer
+    categoryinstanceid Integer
+    subcategoryid Integer
+    rank Integer
+}
+relationship ManyToOne {
+    SubcategoryInstance{categoryinstanceid} to CategoryInstance
+}
+relationship OneToOne {
+    SubcategoryInstance{subcategoryid} to Subcategory
+}
+/**
+ * Category details
+ */
+entity Category {
+    id Integer
+	code String
+	description String
+}
+/**
+ * Subcategory details
+ */
+entity Subcategory {
+    id Integer
+	code String
+	description String
+    categoryid Integer
+}
+relationship ManyToOne {
+    Subcategory{categoryid} to Category
+}
+/**
+ * Support Instance details
+ */
+entity SupportInstance {
+    id Integer
+	starttime LocalDate
+	endtime LocalDate
+	chatlogs String
+	reservationid Integer
+	supportpersonid Integer
+}
+relationship ManyToOne {
+    SupportInstance{reservationid} to Session{reservationid}
+}
+relationship OneToOne {
+    SupportInstance{supportpersonid} to SupportPerson
+}
+/**
+ * Support Person details
+ */
+entity SupportPerson {
+    id Integer
+	name String
+	email String
+	office String
+}
+entity Level2SupportInstance {
+    id Integer
+	starttime LocalDate
+	endtime LocalDate
+	chatlogs String
+	supportinstanceid Integer
+	level2supportpersonid Integer
+}
+relationship ManyToOne {
+    Level2SupportInstance{supportinstanceid} to SupportInstance
+}
+relationship OneToOne {
+    Level2SupportInstance{level2supportpersonid} to Level2SupportPerson
+}
+/**
+ * Level 2 support people
+ */
+entity Level2SupportPerson {
+    id Integer
+    name String
+    email String
+    office String
+}
+/**
+ * Failure Stage details
+ */
+entity FailureStage {
+    id Integer
+	code String
+	description String
+}
+
+/**
+ * Offer details
+ */
+entity Offer {
+    id Integer
+    incidentid Integer
+    offertypeid Integer
+    examid Integer
+    discountpercentage Integer
+}
+relationship ManyToOne {
+    Offer{incidentid} to Incident
+}
+relationship OneToOne {
+    Offer{offertypeid} to OfferType
+    Offer{examid} to Exam
+}
+/**
+ * Offer Type details
+ */
+entity OfferType {
+    id Integer
+	code String
+	description String
+}
+/**
+ * Major Incident details
+ */
+entity MajorIncident{
+    id Integer
+    majorincidentsourceid Integer
+    starttime LocalDate
+    endtime LocalDate
+    date LocalDate
+    details String
+}
+relationship OneToOne {
+    MajorIncident{majorincidentsourceid} to MajorIncidentSource
+}
+/**
+ * Major Incident Source details
+ */
+entity MajorIncidentSource {
+    id Integer
+    code String
+    description String
+}
